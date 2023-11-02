@@ -1,0 +1,11 @@
+.col {
+  text-align: center;
+  padding: 2rem;
+}
+
+/* Styles pour la barre de navigation */
+footer {
+  /*background: linear-gradient(to right, #ff532c, #ffc733, #33ff57, #3357ff);*/
+  padding: 10px 0; /* Ajoutez de l'espace autour du contenu */
+  text-align: center;
+}

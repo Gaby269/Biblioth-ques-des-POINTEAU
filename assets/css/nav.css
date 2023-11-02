@@ -1,0 +1,41 @@
+.onglet-tournois {
+  display: none;
+}
+
+a {
+  color: black;
+  transition: border 0.3s ease; /* Transition de 0.3 seconde avec une courbe d'accélération "ease" */
+}
+a:hover {
+  color: black;
+  background-color: #a1a1a2;
+  border-radius: 0.2rem;
+  font-weight: bold;
+}
+
+.logo-nav {
+  border-radius: 0.5rem;
+  height: 4rem;
+  width: auto;
+}
+
+/* Styles pour la barre de navigation */
+.navbar {
+  /*background: linear-gradient(to right, #ff532c, #ffc733, #33ff57, #3357ff);*/
+  padding: 5px 0; /* Ajoutez de l'espace autour du contenu */
+  text-align: center;
+}
+
+.navbar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.navbar ul .nav-item {
+  display: inline;
+  margin: 0 10px;
+}
+
+.navbar ul li a {
+  margin: 0.4em 0;
+}
