@@ -22,6 +22,16 @@ h1 {
   font-family: "Elephant Normal";
 }
 
-.corps-accueil {
+.corps-accueil,
+.corps-ajout,
+.corps-consultation {
   padding: 3rem;
+}
+
+.conteneur-formulaire {
+  padding: 2rem;
+}
+
+.form-select {
+  padding: 1rem 0.75rem;
 }

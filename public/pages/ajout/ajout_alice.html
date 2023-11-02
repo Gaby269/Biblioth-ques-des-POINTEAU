@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Consultation chez Jérôme</title>
+    <title>Ajout Alice</title>
     <link rel="icon" href="../../assets/images/logo_biblio_pointeau.png" />
     <meta
       name="viewport"
@@ -25,7 +25,9 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-    <script src="../../assets/js/script.js'" defer></script>
+    <script src="../../assets/js/script.js" defer></script>
+    <script src="../../assets/js/ajout.js" defer></script>
+
   </head>
 
   <body>
@@ -96,8 +98,89 @@
         </nav>
     </header>
 
-    <div class="corps-accueil">
-        <h1>Consultation des documents chez Jérôme</h1>
+    <div class="corps-ajout">
+        <h1>Ajout d'un document chez Alice</h1>
+
+        <div class="conteneur-formulaire">
+            
+            <!--<div class="row ">
+                <div class="col form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput1"  placeholder="Titre de l'oeuvre">
+                    <label for="floatingInput1">Titre de l'oeuvre</label>
+                </div>
+                <div class="col form-floating">
+                    <input type="text" class="form-control" id="floatingInput2"  placeholder="Last name">
+                    <label for="floatingInput2">Nom de l'oeuvre</label>
+                </div>
+            </div>-->
+
+            <form class="row g-3" id="formulaire-alice">
+                
+                <div class="col-md-12">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingTitre" placeholder="Symphonie ...">
+                        <label for="floatingTitre">Titre de l'oeuvre</label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingTome" placeholder="Mouvement 3 ...">
+                        <label for="floatingTome">Numéro ou tom de la collection</label>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingSousTitre" placeholder="Titre du mouvement ...">
+                        <label for="floatingSousTitre">Sous titre</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingNomAuteur" placeholder="Diane ...">
+                        <label for="floatingNomAuteur">Nom de l'auteur</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingPrenomAuteur" placeholder="Mouvement III - chocolat ...">
+                        <label for="floatingPrenomAuteur">Prenom Auteur</label>
+                    </div>
+                </div>
+                
+                <div class="col-md-5">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floatingEdition" placeholder="Leduc ...">
+                        <label for="floatingEdition">Edition</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <select class="form-select" aria-label="Selection type de doc">
+                        <option selected>Choisissez le type de document</option>
+                        <option value="livre">Livre</option>
+                        <option value="partition">Partition</option>
+                        <option value="cd">CD</option>
+                        <option value="dvd">DVD</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-floating">
+                        <input type="number" class="form-control" id="floatingAnnee" placeholder="2023 ...">
+                        <label for="floatingAnnee">Année de parution</label>
+                    </div>
+                </div>
+                <!--<div class="col-12">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                      Check me out
+                    </label>
+                  </div>
+                </div>-->
+                <div class="col-12">
+                  <button type="submit" class="btn btn-primary">Ajouter</button>
+                </div>
+              </form>
+        </div>
     </div>
 
     <footer class="container-fluid bg-light">
