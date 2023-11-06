@@ -1,165 +1,197 @@
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js"; // Importez la configuration Firebase
+import {
+  getFirestore,
+  collection,
+  addDoc,
+} from "https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js"; // Importez les modules Firestore
 
-// TODO: Replace the following with your app's Firebase project configuration
-// See: https://support.google.com/firebase/answer/7015592
-const firebaseConfig = {
-  apiKey: "AIzaSyCgSxRqqt38faaT_nKACjz7qofM-aIHGfo",
-  authDomain: "bibliotheque-pointeau.firebaseapp.com",
-  projectId: "bibliotheque-pointeau",
-  storageBucket: "bibliotheque-pointeau.appspot.com",
-  messagingSenderId: "413650229449",
-  appId: "1:413650229449:web:1793d20063380a8d5d9518",
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const myFirebaseConfig = {
+  apiKey: "AIzaSyAEbRy0Zy-vqstge-BjbU5ZQO9N-8JyVbo",
+  authDomain: "bibliothequespointeau.firebaseapp.com",
+  projectId: "bibliothequespointeau",
+  storageBucket: "bibliothequespointeau.appspot.com",
+  messagingSenderId: "779562439373",
+  appId: "1:779562439373:web:0d59ca931d5f9676f74f84",
+  measurementId: "G-B74DN1XD0W",
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-// Initialize Cloud Firestore and get a reference to the service
+// Initialisez Firebase avec la configuration
+const app = initializeApp(myFirebaseConfig);
+// Récupérez une référence à la collection Firestore
 const db = getFirestore(app);
 
-// Récupérez le formulaire et ajoutez un gestionnaire d'événement pour le soumettre
-const formulaire_gabrielle = document.querySelector("form-gabrielle");
-const formulaire_jerome = document.querySelector("form-jerome");
-const formulaire_alice = document.querySelector("form-alice");
-const formulaire_matthieu = document.querySelector("form-matthieu");
+// Récupérez les formulaires et ajoutez un gestionnaire d'événement pour les soumettres
+const formulaire_gabrielle = document.getElementById("form-gabrielle");
+const formulaire_jerome = document.getElementById("form-jerome");
+const formulaire_alice = document.getElementById("form-alice");
+const formulaire_matthieu = document.getElementById("form-matthieu");
 
-formulaire_gabrielle.addEventListener("submit", (e) => {
-  e.preventDefault(); // Empêche la soumission du formulaire par défaut
+// Désafficher les erreurs
+const ajout_success = document.getElementById("ajout-success");
+const ajout_erreur = document.getElementById("ajout-erreur");
 
-  // Récupérez les valeurs des champs du formulaire
-  const titre = document.getElementById("floatingTitre").value;
-  const nomAuteur = document.getElementById("floatingNomAuteur").value;
-  const prenomAuteur = document.getElementById("floatingPrenomAuteur").value;
-  const edition = document.getElementById("floatingEdition").value;
-  const typeDocument = document.querySelector("select").value;
-  const anneeParution = document.getElementById("floatingAnnee").value;
+const url = window.location.href;
 
-  // Ajoutez ces données à Firestore
-  const db = firebase.firestore();
-  db.collection("votreCollection")
-    .add({
+// Ajoutez un gestionnaire d'événement pour soumettre le formulaire
+
+if (url.includes("gabrielle")) {
+  formulaire_gabrielle.addEventListener("submit", (e) => {
+    e.preventDefault(); // Empêche la soumission du formulaire par défaut
+
+    // Récupérez les valeurs des champs du formulaire
+    const titre = document.getElementById("floatingTitre").value;
+    const sous_titre = document.getElementById("floatingSousTitre").value;
+    const tome = document.getElementById("floatingTome").value;
+    const premierAuteur = document.getElementById("floating1Auteur").value;
+    const deuxiemeAuteur = document.getElementById("floating2Auteur").value;
+    const troisiemeAuteur = document.getElementById("floating3Auteur").value;
+    const edition = document.getElementById("floatingEdition").value;
+    const typeDocument = document.querySelector("select").value;
+    const anneeParution = document.getElementById("floatingAnnee").value;
+
+    // Ajoutez ces données à la collection Firestore
+    addDoc(collection(db, "documents"), {
       titre: titre,
-      nomAuteur: nomAuteur,
-      prenomAuteur: prenomAuteur,
+      sous_titre: sous_titre,
+      tome: tome,
+      premierAuteur: premierAuteur,
+      deuxiemeAuteur: deuxiemeAuteur,
+      troisiemeAuteur: troisiemeAuteur,
       edition: edition,
       typeDocument: typeDocument,
       anneeParution: anneeParution,
       qui: "Gabrielle",
     })
-    .then((docRef) => {
-      console.log("Document ajouté chez Gabrielle avec ID : ", docRef.id);
-      // Réinitialisez les champs du formulaire après l'ajout
-      formulaire_gabrielle.reset();
-    })
-    .catch((error) => {
-      console.error(
-        "Erreur lors de l'ajout du document chez Gabrielle : ",
-        error
-      );
-    });
-});
+      .then(() => {
+        // Les données ont été ajoutées avec succès
+        ajout_success.style.display = "flex";
+        formulaire_gabrielle.reset(); // Réinitialise le formulaire
+      })
+      .catch((error) => {
+        // Une erreur s'est produite
+        console.error("Erreur lors de l'ajout du document : ", error);
+        ajout_erreur.style.display = "flex";
+      });
+  });
+} else if (url.includes("jerome")) {
+  // Ajoutez un gestionnaire d'événement pour soumettre le formulaire
+  formulaire_jerome.addEventListener("submit", (e) => {
+    e.preventDefault(); // Empêche la soumission du formulaire par défaut
 
-formulaire_jerome.addEventListener("submit", (e) => {
-  e.preventDefault(); // Empêche la soumission du formulaire par défaut
+    // Récupérez les valeurs des champs du formulaire
+    const titre = document.getElementById("floatingTitre").value;
+    const sous_titre = document.getElementById("floatingSousTitre").value;
+    const tome = document.getElementById("floatingTome").value;
+    const premierAuteur = document.getElementById("floating1Auteur").value;
+    const deuxiemeAuteur = document.getElementById("floating2Auteur").value;
+    const troisiemeAuteur = document.getElementById("floating3Auteur").value;
+    const edition = document.getElementById("floatingEdition").value;
+    const typeDocument = document.querySelector("select").value;
+    const anneeParution = document.getElementById("floatingAnnee").value;
 
-  // Récupérez les valeurs des champs du formulaire
-  const titre = document.getElementById("floatingTitre").value;
-  const sous_titre = document.getElementById("floatingSousTitre").value;
-  const nomAuteur = document.getElementById("floatingNomAuteur").value;
-  const prenomAuteur = document.getElementById("floatingPrenomAuteur").value;
-  const edition = document.getElementById("floatingEdition").value;
-  const typeDocument = document.querySelector("select").value;
-  const anneeParution = document.getElementById("floatingAnnee").value;
-
-  // Ajoutez ces données à Firestore
-  const db = firebase.firestore();
-  db.collection("documents")
-    .add({
+    // Ajoutez ces données à la collection Firestore
+    addDoc(collection(db, "documents"), {
       titre: titre,
       sous_titre: sous_titre,
-      nomAuteur: nomAuteur,
-      prenomAuteur: prenomAuteur,
+      tome: tome,
+      premierAuteur: premierAuteur,
+      deuxiemeAuteur: deuxiemeAuteur,
+      troisiemeAuteur: troisiemeAuteur,
       edition: edition,
       typeDocument: typeDocument,
       anneeParution: anneeParution,
-      qui: "Jerome",
+      qui: "Jérôme",
     })
-    .then((docRef) => {
-      console.log("Document ajouté chez Jérôme avec ID : ", docRef.id);
-      // Réinitialisez les champs du formulaire après l'ajout
-      formulaire_jerome.reset();
-    })
-    .catch((error) => {
-      console.error("Erreur lors de l'ajout du document chez Jérôme : ", error);
-    });
-});
+      .then(() => {
+        // Les données ont été ajoutées avec succès
+        ajout_success.style.display = "flex";
+        formulaire_jerome.reset(); // Réinitialise le formulaire
+      })
+      .catch((error) => {
+        // Une erreur s'est produite
+        console.error("Erreur lors de l'ajout du document : ", error);
+        ajout_erreur.style.display = "flex";
+      });
+  });
+} else if (url.includes("alice")) {
+  // Ajoutez un gestionnaire d'événement pour soumettre le formulaire
+  formulaire_alice.addEventListener("submit", (e) => {
+    e.preventDefault(); // Empêche la soumission du formulaire par défaut
 
-formulaire_matthieu.addEventListener("submit", (e) => {
-  e.preventDefault(); // Empêche la soumission du formulaire par défaut
+    // Récupérez les valeurs des champs du formulaire
+    const titre = document.getElementById("floatingTitre").value;
+    const sous_titre = document.getElementById("floatingSousTitre").value;
+    const tome = document.getElementById("floatingTome").value;
+    const premierAuteur = document.getElementById("floating1Auteur").value;
+    const deuxiemeAuteur = document.getElementById("floating2Auteur").value;
+    const troisiemeAuteur = document.getElementById("floating3Auteur").value;
+    const edition = document.getElementById("floatingEdition").value;
+    const typeDocument = document.querySelector("select").value;
+    const anneeParution = document.getElementById("floatingAnnee").value;
 
-  // Récupérez les valeurs des champs du formulaire
-  const titre = document.getElementById("floatingTitre").value;
-  const nomAuteur = document.getElementById("floatingNomAuteur").value;
-  const prenomAuteur = document.getElementById("floatingPrenomAuteur").value;
-  const edition = document.getElementById("floatingEdition").value;
-  const typeDocument = document.querySelector("select").value;
-  const anneeParution = document.getElementById("floatingAnnee").value;
-
-  // Ajoutez ces données à Firestore
-  const db = firebase.firestore();
-  db.collection("votreCollection")
-    .add({
+    // Ajoutez ces données à la collection Firestore
+    addDoc(collection(db, "documents"), {
       titre: titre,
-      nomAuteur: nomAuteur,
-      prenomAuteur: prenomAuteur,
-      edition: edition,
-      typeDocument: typeDocument,
-      anneeParution: anneeParution,
-      qui: "Matthieu",
-    })
-    .then((docRef) => {
-      console.log("Document ajouté chez Matthieu avec ID : ", docRef.id);
-      // Réinitialisez les champs du formulaire après l'ajout
-      formulaire_matthieu.reset();
-    })
-    .catch((error) => {
-      console.error(
-        "Erreur lors de l'ajout du document chez Matthieu : ",
-        error
-      );
-    });
-});
-
-formulaire_alice.addEventListener("submit", (e) => {
-  e.preventDefault(); // Empêche la soumission du formulaire par défaut
-
-  // Récupérez les valeurs des champs du formulaire
-  const titre = document.getElementById("floatingTitre").value;
-  const nomAuteur = document.getElementById("floatingNomAuteur").value;
-  const prenomAuteur = document.getElementById("floatingPrenomAuteur").value;
-  const edition = document.getElementById("floatingEdition").value;
-  const typeDocument = document.querySelector("select").value;
-  const anneeParution = document.getElementById("floatingAnnee").value;
-
-  // Ajoutez ces données à Firestore
-  const db = firebase.firestore();
-  db.collection("votreCollection")
-    .add({
-      titre: titre,
-      nomAuteur: nomAuteur,
-      prenomAuteur: prenomAuteur,
+      sous_titre: sous_titre,
+      tome: tome,
+      premierAuteur: premierAuteur,
+      deuxiemeAuteur: deuxiemeAuteur,
+      troisiemeAuteur: troisiemeAuteur,
       edition: edition,
       typeDocument: typeDocument,
       anneeParution: anneeParution,
       qui: "Alice",
     })
-    .then((docRef) => {
-      console.log("Document ajouté chez Alice avec ID : ", docRef.id);
-      // Réinitialisez les champs du formulaire après l'ajout
-      formulaire_alice.reset();
+      .then(() => {
+        // Les données ont été ajoutées avec succès
+        ajout_success.style.display = "flex";
+        formulaire_alice.reset(); // Réinitialise le formulaire
+      })
+      .catch((error) => {
+        // Une erreur s'est produite
+        console.error("Erreur lors de l'ajout du document : ", error);
+        ajout_erreur.style.display = "flex";
+      });
+  });
+} else if (url.includes("matthieu")) {
+  // Ajoutez un gestionnaire d'événement pour soumettre le formulaire
+  formulaire_matthieu.addEventListener("submit", (e) => {
+    e.preventDefault(); // Empêche la soumission du formulaire par défaut
+
+    // Récupérez les valeurs des champs du formulaire
+    const titre = document.getElementById("floatingTitre").value;
+    const sous_titre = document.getElementById("floatingSousTitre").value;
+    const tome = document.getElementById("floatingTome").value;
+    const premierAuteur = document.getElementById("floating1Auteur").value;
+    const deuxiemeAuteur = document.getElementById("floating2Auteur").value;
+    const troisiemeAuteur = document.getElementById("floating3Auteur").value;
+    const edition = document.getElementById("floatingEdition").value;
+    const typeDocument = document.querySelector("select").value;
+    const anneeParution = document.getElementById("floatingAnnee").value;
+
+    // Ajoutez ces données à la collection Firestore
+    addDoc(collection(db, "documents"), {
+      titre: titre,
+      sous_titre: sous_titre,
+      tome: tome,
+      premierAuteur: premierAuteur,
+      deuxiemeAuteur: deuxiemeAuteur,
+      troisiemeAuteur: troisiemeAuteur,
+      edition: edition,
+      typeDocument: typeDocument,
+      anneeParution: anneeParution,
+      qui: "Matthieu",
     })
-    .catch((error) => {
-      console.error("Erreur lors de l'ajout du document chez Alice : ", error);
-    });
-});
+      .then(() => {
+        // Les données ont été ajoutées
+        ajout_success.style.display = "flex";
+        formulaire_matthieu.reset(); // Réinitialise le formulaire
+      })
+      .catch((error) => {
+        // Une erreur s'est produite
+        console.error("Erreur lors de l'ajout du document : ", error);
+        ajout_erreur.style.display = "flex";
+      });
+  });
+}
