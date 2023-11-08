@@ -76,6 +76,7 @@ if (url.includes("gabrielle")) {
           <td class="colAnne">${
             data.anneeParution ? data.anneeParution : " "
           }</td>
+          <!--<td class="colBoutton${cpt}"><span class="material-symbols-outlined">edit</span><br/><span class="material-symbols-outlined">delete</span></td>-->
           `;
 
           // Ajoutez la nouvelle ligne au corps du tableau
@@ -131,6 +132,7 @@ if (url.includes("gabrielle")) {
           <td class="colAnne">${
             data.anneeParution ? data.anneeParution : " "
           }</td>
+          <!--<td class="colBoutton${cpt}"><span class="material-symbols-outlined">edit</span><br/><span class="material-symbols-outlined">delete</span></td>-->
           `;
 
           // Ajoutez la nouvelle ligne au corps du tableau
@@ -185,6 +187,7 @@ if (url.includes("gabrielle")) {
           <td class="colAnne">${
             data.anneeParution ? data.anneeParution : " "
           }</td>
+          <!--<td class="colBoutton${cpt}"><span class="material-symbols-outlined">edit</span><br/><span class="material-symbols-outlined">delete</span></td>-->
           `;
 
           // Ajoutez la nouvelle ligne au corps du tableau
@@ -241,6 +244,7 @@ if (url.includes("gabrielle")) {
               <td class="colAnne">${
                 data.anneeParution ? data.anneeParution : " "
               }</td>
+              <!--<td class="colBoutton${cpt}"><span class="material-symbols-outlined">edit</span><br/><span class="material-symbols-outlined">delete</span></td>-->
               `;
 
           // Ajoutez la nouvelle ligne au corps du tableau
@@ -296,6 +300,7 @@ if (url.includes("gabrielle")) {
           }</td>
           
         <td class="colQui">${data.qui ? data.qui : " "}</td>
+        <!--<td class="colBoutton${cpt}"><span class="material-symbols-outlined">edit</span><br/><span class="material-symbols-outlined">delete</span></td>-->
         `;
 
         // Ajoutez la nouvelle ligne au corps du tableau
