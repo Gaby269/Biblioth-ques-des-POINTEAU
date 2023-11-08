@@ -46,6 +46,15 @@ if (url.includes("gabrielle")) {
     const premierAuteur = document.getElementById("floating1Auteur").value;
     const deuxiemeAuteur = document.getElementById("floating2Auteur").value;
     const troisiemeAuteur = document.getElementById("floating3Auteur").value;
+    const premierInterprete = document.getElementById(
+      "floating1Interprete"
+    ).value;
+    const deuxiemeInterprete = document.getElementById(
+      "floating2Interprete"
+    ).value;
+    const troisiemeInterprete = document.getElementById(
+      "floating3Interprete"
+    ).value;
     const edition = document.getElementById("floatingEdition").value;
     const typeDocument = document.querySelector("select").value;
     const anneeParution = document.getElementById("floatingAnnee").value;
@@ -58,6 +67,9 @@ if (url.includes("gabrielle")) {
       premierAuteur: premierAuteur,
       deuxiemeAuteur: deuxiemeAuteur,
       troisiemeAuteur: troisiemeAuteur,
+      premierInterprete: premierInterprete,
+      deuxiemeInterprete: deuxiemeInterprete,
+      troisiemeInterprete: troisiemeInterprete,
       edition: edition,
       typeDocument: typeDocument,
       anneeParution: anneeParution,
@@ -86,6 +98,15 @@ if (url.includes("gabrielle")) {
     const premierAuteur = document.getElementById("floating1Auteur").value;
     const deuxiemeAuteur = document.getElementById("floating2Auteur").value;
     const troisiemeAuteur = document.getElementById("floating3Auteur").value;
+    const premierInterprete = document.getElementById(
+      "floating1Interprete"
+    ).value;
+    const deuxiemeInterprete = document.getElementById(
+      "floating2Interprete"
+    ).value;
+    const troisiemeInterprete = document.getElementById(
+      "floating3Interprete"
+    ).value;
     const edition = document.getElementById("floatingEdition").value;
     const typeDocument = document.querySelector("select").value;
     const anneeParution = document.getElementById("floatingAnnee").value;
@@ -98,6 +119,9 @@ if (url.includes("gabrielle")) {
       premierAuteur: premierAuteur,
       deuxiemeAuteur: deuxiemeAuteur,
       troisiemeAuteur: troisiemeAuteur,
+      premierInterprete: premierInterprete,
+      deuxiemeInterprete: deuxiemeInterprete,
+      troisiemeInterprete: troisiemeInterprete,
       edition: edition,
       typeDocument: typeDocument,
       anneeParution: anneeParution,
@@ -126,6 +150,15 @@ if (url.includes("gabrielle")) {
     const premierAuteur = document.getElementById("floating1Auteur").value;
     const deuxiemeAuteur = document.getElementById("floating2Auteur").value;
     const troisiemeAuteur = document.getElementById("floating3Auteur").value;
+    const premierInterprete = document.getElementById(
+      "floating1Interprete"
+    ).value;
+    const deuxiemeInterprete = document.getElementById(
+      "floating2Interprete"
+    ).value;
+    const troisiemeInterprete = document.getElementById(
+      "floating3Interprete"
+    ).value;
     const edition = document.getElementById("floatingEdition").value;
     const typeDocument = document.querySelector("select").value;
     const anneeParution = document.getElementById("floatingAnnee").value;
@@ -138,6 +171,9 @@ if (url.includes("gabrielle")) {
       premierAuteur: premierAuteur,
       deuxiemeAuteur: deuxiemeAuteur,
       troisiemeAuteur: troisiemeAuteur,
+      premierInterprete: premierInterprete,
+      deuxiemeInterprete: deuxiemeInterprete,
+      troisiemeInterprete: troisiemeInterprete,
       edition: edition,
       typeDocument: typeDocument,
       anneeParution: anneeParution,
@@ -166,6 +202,15 @@ if (url.includes("gabrielle")) {
     const premierAuteur = document.getElementById("floating1Auteur").value;
     const deuxiemeAuteur = document.getElementById("floating2Auteur").value;
     const troisiemeAuteur = document.getElementById("floating3Auteur").value;
+    const premierInterprete = document.getElementById(
+      "floating1Interprete"
+    ).value;
+    const deuxiemeInterprete = document.getElementById(
+      "floating2Interprete"
+    ).value;
+    const troisiemeInterprete = document.getElementById(
+      "floating3Interprete"
+    ).value;
     const edition = document.getElementById("floatingEdition").value;
     const typeDocument = document.querySelector("select").value;
     const anneeParution = document.getElementById("floatingAnnee").value;
@@ -178,6 +223,9 @@ if (url.includes("gabrielle")) {
       premierAuteur: premierAuteur,
       deuxiemeAuteur: deuxiemeAuteur,
       troisiemeAuteur: troisiemeAuteur,
+      premierInterprete: premierInterprete,
+      deuxiemeInterprete: deuxiemeInterprete,
+      troisiemeInterprete: troisiemeInterprete,
       edition: edition,
       typeDocument: typeDocument,
       anneeParution: anneeParution,

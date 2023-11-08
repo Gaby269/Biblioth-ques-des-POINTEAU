@@ -32,23 +32,195 @@ const url = window.location.href;
 // Vérifiez si l'URL contient le nom "gabrielle"
 if (url.includes("gabrielle")) {
   let cpt = 0;
+  const sortedData = [];
   getDocs(documentsCollection)
     .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
         // Pour chaque document dans la collection, extrayez les données
         const data = doc.data();
-        //console.log(data);
+        sortedData.push(data); // Ajoutez les données à un tableau
+      });
 
+      // Triez le tableau par le champ "titre"
+      sortedData.sort((a, b) => a.titre.localeCompare(b.titre));
+
+      // Parcours du tableau
+      for (const data of sortedData) {
         // Remplacement si jamais il n'existe pas
         if (data.qui == "Gabrielle") {
           cpt++;
           // Créez une nouvelle ligne dans le tableau
           const newRow = document.createElement("tr");
           newRow.innerHTML = `
-            <th scope="row" class="colNum">${cpt}</th>
-            <td class="colTitre">${
-              data.titre ? data.titre : " "
-            }<br/> <p style="padding-left:0.5rem; color:grey;">${
+          <th scope="row" class="colNum">${cpt}</th>
+          <td class="colTitre">${
+            data.titre ? data.titre : " "
+          }<br/> <p style="padding-left:0.5rem; color:grey;">${
+            data.sous_titre ? data.sous_titre : " "
+          }</p></td>
+          <td class="colTomme">${data.tome ? data.tome : " "}</td>
+          <td class="colAuteur">
+            ${data.premierAuteur ? data.premierAuteur : ""}
+            ${data.deuxiemeAuteur ? ", " + data.deuxiemeAuteur : ""}
+            ${data.troisiemeAuteur ? ", " + data.troisiemeAuteur : ""}
+          </td>
+          <td class="colInterprete">
+            ${data.premierInterprete ? data.premierInterprete : ""}
+            ${data.deuxiemeInterprete ? ", " + data.deuxiemeInterprete : ""}
+            ${data.troisiemeInterprete ? ", " + data.troisiemeInterprete : ""}
+          </td>
+          <td class="colEdition">${data.edition ? data.edition : " "}</td>
+          <td class="colType">${
+            data.typeDocument ? data.typeDocument : " "
+          }</td>
+          <td class="colAnne">${
+            data.anneeParution ? data.anneeParution : " "
+          }</td>
+          `;
+
+          // Ajoutez la nouvelle ligne au corps du tableau
+          tableBody.appendChild(newRow);
+        }
+      }
+    })
+    .catch((error) => {
+      console.error("Erreur lors de la récupération des données : ", error);
+    });
+} else if (url.includes("jerome")) {
+  let cpt = 0;
+  const sortedData = [];
+  getDocs(documentsCollection)
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        // Pour chaque document dans la collection, extrayez les données
+        const data = doc.data();
+        sortedData.push(data); // Ajoutez les données à un tableau
+      });
+
+      // Triez le tableau par le champ "titre"
+      sortedData.sort((a, b) => a.titre.localeCompare(b.titre));
+
+      // Parcours du tableau
+      for (const data of sortedData) {
+        if (data.qui == "Jérôme") {
+          cpt++;
+          // Créez une nouvelle ligne dans le tableau
+          const newRow = document.createElement("tr");
+          newRow.innerHTML = `
+          <th scope="row" class="colNum">${cpt}</th>
+          <td class="colTitre">${
+            data.titre ? data.titre : " "
+          }<br/> <p style="padding-left:0.5rem; color:grey;">${
+            data.sous_titre ? data.sous_titre : " "
+          }</p></td>
+        <td class="colTomme">${data.tome ? data.tome : " "}</td>
+        <td class="colAuteur">
+          ${data.premierAuteur ? data.premierAuteur : ""}
+          ${data.deuxiemeAuteur ? ", " + data.deuxiemeAuteur : ""}
+          ${data.troisiemeAuteur ? ", " + data.troisiemeAuteur : ""}
+        </td>
+        <td class="colInterprete">
+          ${data.premierInterprete ? data.premierInterprete : ""}
+          ${data.deuxiemeInterprete ? ", " + data.deuxiemeInterprete : ""}
+          ${data.troisiemeInterprete ? ", " + data.troisiemeInterprete : ""}
+        </td>
+          <td class="colEdition">${data.edition ? data.edition : " "}</td>
+          <td class="colType">${
+            data.typeDocument ? data.typeDocument : " "
+          }</td>
+          <td class="colAnne">${
+            data.anneeParution ? data.anneeParution : " "
+          }</td>
+          `;
+
+          // Ajoutez la nouvelle ligne au corps du tableau
+          tableBody.appendChild(newRow);
+        }
+      }
+    })
+    .catch((error) => {
+      console.error("Erreur lors de la récupération des données : ", error);
+    });
+} else if (url.includes("alice")) {
+  let cpt = 0;
+  const sortedData = [];
+  getDocs(documentsCollection)
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        // Pour chaque document dans la collection, extrayez les données
+        const data = doc.data();
+        sortedData.push(data); // Ajoutez les données à un tableau
+      });
+      // Triez le tableau par le champ "titre"
+      sortedData.sort((a, b) => a.titre.localeCompare(b.titre));
+
+      // Parcours du tableau
+      for (const data of sortedData) {
+        if (data.qui == "Alice") {
+          cpt++;
+          // Créez une nouvelle ligne dans le tableau
+          const newRow = document.createElement("tr");
+          newRow.innerHTML = `
+          <th scope="row" class="colNum">${cpt}</th>
+          <td class="colTitre">${
+            data.titre ? data.titre : " "
+          }<br/> <p style="padding-left:0.5rem; color:grey;">${
+            data.sous_titre ? data.sous_titre : " "
+          }</p></td>
+        <td class="colTomme">${data.tome ? data.tome : " "}</td>
+        <td class="colAuteur">
+          ${data.premierAuteur ? data.premierAuteur : ""}
+          ${data.deuxiemeAuteur ? ", " + data.deuxiemeAuteur : ""}
+          ${data.troisiemeAuteur ? ", " + data.troisiemeAuteur : ""}
+        </td>
+        <td class="colInterprete">
+          ${data.premierInterprete ? data.premierInterprete : ""}
+          ${data.deuxiemeInterprete ? ", " + data.deuxiemeInterprete : ""}
+          ${data.troisiemeInterprete ? ", " + data.troisiemeInterprete : ""}
+        </td>
+          <td class="colEdition">${data.edition ? data.edition : " "}</td>
+          <td class="colType">${
+            data.typeDocument ? data.typeDocument : " "
+          }</td>
+          <td class="colAnne">${
+            data.anneeParution ? data.anneeParution : " "
+          }</td>
+          `;
+
+          // Ajoutez la nouvelle ligne au corps du tableau
+          tableBody.appendChild(newRow);
+        }
+      }
+    })
+    .catch((error) => {
+      console.error("Erreur lors de la récupération des données : ", error);
+    });
+} else if (url.includes("matthieu")) {
+  let cpt = 0;
+  const sortedData = [];
+  getDocs(documentsCollection)
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        // Pour chaque document dans la collection, extrayez les données
+        const data = doc.data();
+        sortedData.push(data); // Ajoutez les données à un tableau
+      });
+
+      // Triez le tableau par le champ "titre"
+      sortedData.sort((a, b) => a.titre.localeCompare(b.titre));
+
+      // Parcours du tableau
+      for (const data of sortedData) {
+        // Vérification a qui apartient le livre
+        if (data.qui == "Matthieu") {
+          cpt++;
+          // Créez une nouvelle ligne dans le tableau
+          const newRow = document.createElement("tr");
+          newRow.innerHTML = `
+              <th scope="row" class="colNum">${cpt}</th>
+              <td class="colTitre">${
+                data.titre ? data.titre : " "
+              }<br/> <p style="padding-left:0.5rem; color:grey;">${
             data.sous_titre ? data.sous_titre : " "
           }</p></td>
             <td class="colTomme">${data.tome ? data.tome : " "}</td>
@@ -57,165 +229,44 @@ if (url.includes("gabrielle")) {
               ${data.deuxiemeAuteur ? ", " + data.deuxiemeAuteur : ""}
               ${data.troisiemeAuteur ? ", " + data.troisiemeAuteur : ""}
             </td>
-            <td class="colEdition">${data.edition ? data.edition : " "}</td>
-            <td class="colType">${
-              data.typeDocument ? data.typeDocument : " "
-            }</td>
-            <td class="colAnne">${
-              data.anneeParution ? data.anneeParution : " "
-            }</td>
-            `;
+            <td class="colInterprete">
+              ${data.premierInterprete ? data.premierInterprete : ""}
+              ${data.deuxiemeInterprete ? ", " + data.deuxiemeInterprete : ""}
+              ${data.troisiemeInterprete ? ", " + data.troisiemeInterprete : ""}
+            </td>
+              <td class="colEdition">${data.edition ? data.edition : " "}</td>
+              <td class="colType">${
+                data.typeDocument ? data.typeDocument : " "
+              }</td>
+              <td class="colAnne">${
+                data.anneeParution ? data.anneeParution : " "
+              }</td>
+              `;
 
           // Ajoutez la nouvelle ligne au corps du tableau
           tableBody.appendChild(newRow);
         }
-      });
-    })
-    .catch((error) => {
-      console.error("Erreur lors de la récupération des données : ", error);
-    });
-} else if (url.includes("jerome")) {
-  let cpt = 0;
-  getDocs(documentsCollection)
-    .then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        cpt++;
-        // Pour chaque document dans la collection, extrayez les données
-        const data = doc.data();
-        //console.log(data);
-
-        if (data.qui == "Jérôme") {
-          cpt++;
-          // Créez une nouvelle ligne dans le tableau
-          const newRow = document.createElement("tr");
-          newRow.innerHTML = `
-            <th scope="row" class="colNum">${cpt}</th>
-            <td class="colTitre">${
-              data.titre ? data.titre : " "
-            }<br/> <p style="padding-left:0.5rem; color:grey;">${
-            data.sous_titre ? data.sous_titre : " "
-          }</p></td>
-          <td class="colTomme">${data.tome ? data.tome : " "}</td>
-          <td class="colAuteur">
-            ${data.premierAuteur ? data.premierAuteur : ""}
-            ${data.deuxiemeAuteur ? ", " + data.deuxiemeAuteur : ""}
-            ${data.troisiemeAuteur ? ", " + data.troisiemeAuteur : ""}
-          </td>
-            <td class="colEdition">${data.edition ? data.edition : " "}</td>
-            <td class="colType">${
-              data.typeDocument ? data.typeDocument : " "
-            }</td>
-            <td class="colAnne">${
-              data.anneeParution ? data.anneeParution : " "
-            }</td>
-            `;
-
-          // Ajoutez la nouvelle ligne au corps du tableau
-          tableBody.appendChild(newRow);
-        }
-      });
-    })
-    .catch((error) => {
-      console.error("Erreur lors de la récupération des données : ", error);
-    });
-} else if (url.includes("alice")) {
-  let cpt = 0;
-  getDocs(documentsCollection)
-    .then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        cpt++;
-        // Pour chaque document dans la collection, extrayez les données
-        const data = doc.data();
-        //console.log(data);
-
-        if (data.qui == "Alice") {
-          cpt++;
-          // Créez une nouvelle ligne dans le tableau
-          const newRow = document.createElement("tr");
-          newRow.innerHTML = `
-            <th scope="row" class="colNum">${cpt}</th>
-            <td class="colTitre">${
-              data.titre ? data.titre : " "
-            }<br/> <p style="padding-left:0.5rem; color:grey;">${
-            data.sous_titre ? data.sous_titre : " "
-          }</p></td>
-          <td class="colTomme">${data.tome ? data.tome : " "}</td>
-          <td class="colAuteur">
-            ${data.premierAuteur ? data.premierAuteur : ""}
-            ${data.deuxiemeAuteur ? ", " + data.deuxiemeAuteur : ""}
-            ${data.troisiemeAuteur ? ", " + data.troisiemeAuteur : ""}
-          </td>
-            <td class="colEdition">${data.edition ? data.edition : " "}</td>
-            <td class="colType">${
-              data.typeDocument ? data.typeDocument : " "
-            }</td>
-            <td class="colAnne">${
-              data.anneeParution ? data.anneeParution : " "
-            }</td>
-            `;
-
-          // Ajoutez la nouvelle ligne au corps du tableau
-          tableBody.appendChild(newRow);
-        }
-      });
-    })
-    .catch((error) => {
-      console.error("Erreur lors de la récupération des données : ", error);
-    });
-} else if (url.includes("matthieu")) {
-  let cpt = 0;
-  getDocs(documentsCollection)
-    .then((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        cpt++;
-        // Pour chaque document dans la collection, extrayez les données
-        const data = doc.data();
-        //console.log(data);
-
-        if (data.qui == "Matthieu") {
-          cpt++;
-          // Créez une nouvelle ligne dans le tableau
-          const newRow = document.createElement("tr");
-          newRow.innerHTML = `
-            <th scope="row" class="colNum">${cpt}</th>
-            <td class="colTitre">${
-              data.titre ? data.titre : " "
-            }<br/> <p style="padding-left:0.5rem; color:grey;">${
-            data.sous_titre ? data.sous_titre : " "
-          }</p></td>
-          <td class="colTomme">${data.tome ? data.tome : " "}</td>
-          <td class="colAuteur">
-            ${data.premierAuteur ? data.premierAuteur : ""}
-            ${data.deuxiemeAuteur ? ", " + data.deuxiemeAuteur : ""}
-            ${data.troisiemeAuteur ? ", " + data.troisiemeAuteur : ""}
-          </td>
-            <td class="colEdition">${data.edition ? data.edition : " "}</td>
-            <td class="colType">${
-              data.typeDocument ? data.typeDocument : " "
-            }</td>
-            <td class="colAnne">${
-              data.anneeParution ? data.anneeParution : " "
-            }</td>
-            `;
-
-          // Ajoutez la nouvelle ligne au corps du tableau
-          tableBody.appendChild(newRow);
-        }
-      });
+      }
     })
     .catch((error) => {
       console.error("Erreur lors de la récupération des données : ", error);
     });
 } else if (url.includes("tous")) {
   let cpt = 0;
+  const sortedData = [];
   getDocs(documentsCollection)
     .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
-        cpt++;
         // Pour chaque document dans la collection, extrayez les données
         const data = doc.data();
-        //console.log(data);
+        sortedData.push(data); // Ajoutez les données à un tableau
+      });
+      // Triez le tableau par le champ "titre"
+      sortedData.sort((a, b) => a.titre.localeCompare(b.titre));
 
+      // Parcours du tableau
+      for (const data of sortedData) {
+        cpt++;
         // Créez une nouvelle ligne dans le tableau
         const newRow = document.createElement("tr");
         newRow.innerHTML = `
@@ -231,6 +282,11 @@ if (url.includes("gabrielle")) {
           ${data.deuxiemeAuteur ? ", " + data.deuxiemeAuteur : ""}
           ${data.troisiemeAuteur ? ", " + data.troisiemeAuteur : ""}
         </td>
+        <td class="colInterprete">
+          ${data.premierInterprete ? data.premierInterprete : ""}
+          ${data.deuxiemeInterprete ? ", " + data.deuxiemeInterprete : ""}
+          ${data.troisiemeInterprete ? ", " + data.troisiemeInterprete : ""}
+        </td>
           <td class="colEdition">${data.edition ? data.edition : " "}</td>
           <td class="colType">${
             data.typeDocument ? data.typeDocument : " "
@@ -244,7 +300,7 @@ if (url.includes("gabrielle")) {
 
         // Ajoutez la nouvelle ligne au corps du tableau
         tableBody.appendChild(newRow);
-      });
+      }
     })
     .catch((error) => {
       console.error("Erreur lors de la récupération des données : ", error);

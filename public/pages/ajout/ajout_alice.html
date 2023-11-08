@@ -105,14 +105,14 @@
                 
                 <div class="col-md-12">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingTitre" placeholder="Symphonie ...">
+                        <input type="text" class="form-control" id="floatingTitre" placeholder="Symphonie ..." required>
                         <label for="floatingTitre">Titre de l'oeuvre</label>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-floating">
                         <input type="text" class="form-control" id="floatingTome" placeholder="Mouvement 3 ...">
-                        <label for="floatingTome">Numéro ou tom de la collection</label>
+                        <label for="floatingTome">Numéro ou tome de la collection</label>
                     </div>
                 </div>
                 <div class="col-md-9">
@@ -139,15 +139,33 @@
                         <label for="floating3Auteur">3ème auteur</label>
                     </div>
                 </div>
+                <div class="col-md-4">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floating1Interprete" placeholder="Diane ...">
+                        <label for="floating1Interprete">1er interprète</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floating2Interprete" placeholder="Mouvement III - chocolat ...">
+                        <label for="floating2Interprete">2ème interprète</label>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="floating3Interprete" placeholder="Mouvement III - chocolat ...">
+                        <label for="floating3Interprete">3ème interprète</label>
+                    </div>
+                </div>
                 
                 <div class="col-md-5">
                     <div class="form-floating">
-                        <input type="text" class="form-control" id="floatingEdition" placeholder="Leduc ...">
+                        <input type="text" class="form-control" id="floatingEdition" placeholder="Leduc ..." required>
                         <label for="floatingEdition">Edition</label>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <select class="form-select" aria-label="Selection type de doc">
+                    <select class="form-select" aria-label="Selection type de doc" required>
                         <option selected>Choisissez le type de document</option>
                         <option value="LIVRE">Livre</option>
                         <option value="PARTITION">Partition</option>
