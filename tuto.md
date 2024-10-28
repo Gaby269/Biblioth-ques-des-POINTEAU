@@ -1,6 +1,6 @@
 ```bash
 npm install firebase
-npm install firebase-toolsù
+npm install firebase-tools
 firebase login
 firebase init
 
